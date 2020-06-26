@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        ul.dropdown {
+            list-style: none;
+        }
+        /* MAIN_BUTTON */
+        .main_list {
+            background: url("hover_main.svg");
+            width: 220px;
+            height: 220px;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: absolute;
+            left: 60px;
+            z-index: 1;
+        }
+
+
+        ul.dropdown:hover > .first_list, ul.dropdown:active > .first_list {
+            transform: rotate(360deg);
+            top: 200px;
+        }
+        ul.dropdown:hover > .second_list, ul.dropdown:active > .second_list {
+            transform: rotate(360deg);
+            top: 400px;
+        }
+        ul.dropdown:hover > .third_list, ul.dropdown:active > .third_list {
+            transform: rotate(360deg);
+            top: 600px;
+        }
+        ul.dropdown li {
+            transition: all 1s cubic-bezier(.68,-0.55,.27,1.55);
+            transform: rotate(180deg);
+            top: 0;
+        }
+        ul.dropdown li.main_list {
+            transform: rotate(0deg);
+        }
+        h1 {
+            font-size: 21pt;
+            color: #b4b7ff;
+            text-shadow: 1px 1px 2px #000;
+            top: 73px;
+            left: 43px;
+            position: relative;
+        }
+
+        /* A_LINKS*/
+
+        li.first_list {
+            background: url("first_list.svg");
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            left: 50px;
+            z-index: 0;
+        }
+        a.first_a {
+            top: 104px;
+            left: 70px;
+            position: relative;
+            font-size: 22pt;
+            color: #fbff61;
+            text-shadow: 1px 1px 2px #000;
+            text-decoration: none;
+        }
+
+        li.second_list {
+            background: url("second_list.svg");
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            left: 50px;
+            z-index: -1;
+        }
+        a.second_a {
+            top: 104px;
+            left: 70px;
+            position: relative;
+            font-size: 22pt;
+            color: #c9ffda;
+            text-shadow: 1px 1px 2px #000;
+            text-decoration: none;
+        }
+
+        li.third_list {
+            background: url("third_list.svg");
+            width: 260px;
+            height: 260px;
+            position: absolute;
+            left: 50px;
+            z-index: -2;
+        }
+        a.third_a {
+            top: 104px;
+            left: 70px;
+            position: relative;
+            font-size: 22pt;
+            color: #b4b7ff ;
+            text-shadow: 1px 1px 2px #000;
+            text-decoration: none;
+        }
+        /* HOVER_LINKS */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        /* FOR_JS */
+        .show {
+            display: block;
+        }
+        body {
+            background: #2f3229;
+            height: 100vh;
+            z-index: -100;
+            position: relative;
+        }
+        main {
+            position: relative;
+            left: 30vw;
+            top: -10vh;
+        }
+
+        section#discript {
+            height: 300px;
+            width: 300px;
+            background: #c9ffda;
+            position: relative;
+            top: 50vh;
+            box-shadow: 1px 1px 7px #fbff61;
+            border-radius: 0px 10px 0px 10px;
+            left: 11vw;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+        h2 {
+            transform: rotate(310deg);
+            margin: 0;
+            position: inherit;
+            left: -23px;
+            top: 124px;
+        }
+        p.paragraph{
+            transform: rotate(310deg);
+            position: inherit;
+            top: 3px;
+            left: 104px;
+        }
+
+        section#skills {
+            height: 280px;
+            width: 280px;
+            background: #b4b7ff;
+            position: absolute;
+            z-index: 0;
+            top: 51vh;
+            left: 28vw;
+            box-shadow: 1px 1px 7px #fbff61;
+            border-radius: 0px 10px 0px 10px;
+            transform: rotate(45deg);
+        }
+        p.dj {
+            transform: rotate(310deg);
+            position: inherit;
+            top: 7px;
+            left: 14px;
+        }
+        p.htm_l {
+            transform: rotate(310deg);
+            position: inherit;
+            top: 5px;
+            left: 75px;
+        }
+        p.js {
+            transform: rotate(310deg);
+            position: inherit;
+            top: 4px;
+            left: 186px;
+        }
+        p.Node {
+            transform: rotate(310deg);
+            position: inherit;
+            top: 3px;
+            left: 136px;
+        }
+
+        section#skills2 {
+            height: 280px;
+            width: 280px;
+            background: #fbff61;
+            position: absolute;
+            z-index: 0;
+            top: 51vh;
+            left: -3vw;
+            box-shadow: 1px 1px 7px #fbff61;
+            border-radius: 0px 10px 0px 10px;
+            transform: rotate(45deg);
+        }
+        p.s1 {
+            transform: rotate(313deg);
+            position: inherit;
+            left: 217px;
+            top: 226px;
+        }
+        p.s2 {
+            transform: rotate(313deg);
+            position: inherit;
+            left: 166px;
+            top: 225px;
+        }
+        p.s3 {
+            transform: rotate(313deg);
+            position: inherit;
+            left: 92px;
+            top: 228px;
+        }
+        p.s4 {
+            transform: rotate(313deg);
+            position: inherit;
+            left: 47px;
+            top: 224px;
+        }
+    </style>
+</head>
+<body>
+<ul class="dropdown" onclick="void(0);">
+    <li class="main_list"><h1>Connection</h1></li>
+    <li class="first_list"><a class="first_a" href="https://www.linkedin.com/in/borograam/">LinkedIn</a></li>
+    <li class="second_list"><a class="second_a" href="#">Git</a></li>
+    <li class="third_list"><a class="third_a" href="mailto:andrew.popov@borogra.am" target="_blank">Send a mail</a></li>
+</ul>
+
+<main>
+    <section id="discript">
+        <h2>Hello, my name is Andrew</h2>
+        <p class="paragraph">I am a fullstack developer....</p>
+    </section>
+
+    <section id="skills">
+        <p class="dj">Django</p>
+        <p class="htm_l">HTML</p>
+        <p class="js">Java Script</p>
+        <p class="Node">Node.js</p>
+    </section>
+
+    <section id="skills2">
+        <p class="s1">Django</p>
+        <p class="s2">HTML</p>
+        <p class="s3">Java Script</p>
+        <p class="s4">Node.js</p>
+    </section>
+
+</main>
+
+</body>
+</html>
