@@ -1,0 +1,25 @@
+{
+  "name": "borogra.am",
+  "version": "1.0.0",
+  "description": "borograam's web page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodriguez5324/site.git"
+  },
+  "author": "Andrew Popov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodriguez5324/site/issues"
+  },
+  "homepage": "https://github.com/rodriguez5324/site#readme",
+  "devDependencies": {
+    "sass": "^1.26.10"
+  },
+  "bin": {
+    "compile": "sass src/style.scss public/style.csc"
+  }
+}

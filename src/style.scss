@@ -1,0 +1,165 @@
+$nav-buttons: (
+        ('background': #B4B7FF, 'color': #fbff61),
+        ('background': #FBFF61, 'color': #c9ffda),
+        ('background': #C9FFDA, 'color': #b4b7ff)
+);
+$nav-offset-top: 40px;
+$nav-offset-bottom: 50px;
+$nav-tile-size: 180px;
+
+$main-paper-size: 400px;
+
+body {
+  background: #2f3229;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: hidden;
+}
+
+nav {
+  flex: 0 0 285px;
+
+  ul.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 100%;
+
+    li {
+      transition: all 1s cubic-bezier(.68,-0.55,.27,1.55);
+      transform: rotate(-180deg);
+      width: $nav-tile-size;
+      height: $nav-tile-size;
+      position: absolute;
+      left: 50px;
+      top: $nav-offset-top;
+
+      a, h1 {
+        font-size: 22pt;
+        text-shadow: 1px 1px 2px #000;
+        text-decoration: none;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+      }
+    }
+
+    li.main_list {
+      z-index: 100;
+      transform: rotate(0deg);
+
+      h1 {
+        color: #b4b7ff;
+        background: #C9FFDA;
+        transform: rotate(5deg);
+        margin: 0;
+        cursor: pointer;
+
+        span {
+          transform: rotate(-5deg);
+        }
+      }
+    }
+
+    $i: 2;
+    @each $map in $nav-buttons {
+      li:nth-child(#{$i}) {
+        z-index: 101 - $i;
+
+        a {
+          @each $name, $color in $map {
+            #{$name}: $color;
+          }
+          transform: rotate(10deg * $i - 5deg);
+
+          span {
+            transform: rotate(-10deg * $i + 5deg);
+          }
+        }
+      }
+      $i: $i + 1
+    }
+
+    // necessary to define it after "each"
+    li:hover {
+      z-index: 101;
+    }
+  }
+  ul.dropdown:hover, ul.dropdown.clicked {
+    li {
+      transform: rotate(0deg);
+    }
+    $i: 2;
+    $len: length($nav-buttons);
+    $top: $nav-offset-top;
+    $bot: $nav-offset-bottom;
+    $size: $nav-tile-size;
+    @each $map in $nav-buttons {
+      li:nth-child(#{$i}) {
+        //top: calc(((100vh - #{$top + $bot + ($len + 1) * $size}) / #{$len} + #{$size}) * #{$i - 1} + #{$top});
+        //top: calc(100vh / #{$len} * #{$i - 1} - #{(($top + $bot + ($len + 1) * $size) / $len - $size) * ($i - 1) - $top});
+        top: calc(100vh * #{$i - 1} / #{$len} - #{($top + $bot + $size) * ($i - 1) / $len - $top});
+      }
+      $i: $i + 1;
+    }
+  }
+}
+
+main {
+  background: #2f3229;
+  flex: 1 0 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  div {
+    width: $main-paper-size;
+    height: $main-paper-size;
+  }
+
+  #paper-top {
+    transform: rotate(45deg);
+    background: #F6FFB4;
+    box-shadow: 10px 10px #B4FFFF;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      width: auto;
+      height: auto;
+      transform: rotate(-45deg);
+      text-shadow: 1px 1px #000;
+      color: #b4b7ff;
+
+      h2 {
+        position: relative;
+        left: -38px;
+        font-size: 32px;
+      }
+
+      p {
+        position: relative;
+        left: 120px;
+        font-size: 21px;
+      }
+    }
+  }
+
+  #paper-bottom {
+    transform: rotate(45deg);
+    position: absolute;
+    background: #B4C0FF;
+    box-shadow: 10px 10px #FFDEB4;
+    z-index: 89;
+    top: calc(100vh / 2 - #{$main-paper-size / 2 - 27px})
+  }
+}

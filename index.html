@@ -3,171 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Borograam`s Page</title>
-    <style>
-        body {
-            background: #2f3229;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            height: 100vh;
-            overflow: hidden;
-        }
-        nav {
-            flex: 0 0 285px;
-        }
-        main {
-            flex: 1 0 500px;
-            background: #2f3229;
-        }
-        nav ul.dropdown {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            position: relative;
-            height: 100%;
-        }
-        /* MAIN_BUTTON */
-        nav ul.dropdown > li {
-            transition: all 1s cubic-bezier(.68,-0.55,.27,1.55);
-            transform: rotate(-180deg);
-            width: 180px;
-            height: 180px;
-            position: absolute;
-            left: 50px;
-            top: 40px;
-        }
-        nav ul.dropdown:hover > li, nav ul.dropdown.clicked > li {
-            transform: rotate(0deg);
-        }
-        nav ul.dropdown > li.main_list {
-            z-index: 100;
-            transform: rotate(0deg);
-        }
-        nav ul.dropdown > li > a, nav ul.dropdown > li > h1 {
-            font-size: 22pt;
-            text-shadow: 1px 1px 2px #000;
-            text-decoration: none;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-        }
-
-        nav ul.dropdown > li.main_list > h1 {
-            color: #b4b7ff;
-            background: #C9FFDA;
-            transform: rotate(5deg);
-            margin: 0;
-            cursor: pointer;
-        }
-        nav ul.dropdown > li.main_list > h1 > span {
-            transform: rotate(-5deg);
-        }
-
-        /* A_LINKS*/
-
-        nav ul.dropdown > li:nth-child(2) {
-            z-index: 99;
-        }
-        nav ul.dropdown:hover > li:nth-child(2), nav ul.dropdown.clicked > li:nth-child(2) {
-            top: calc(((100vh - 40px - 50px - 4 * 180px) / 3 + 180px) * 1 + 40px);
-        }
-        nav ul.dropdown > li:nth-child(2) > a {
-            background: #B4B7FF;
-            color: #fbff61;
-            transform: rotate(15deg);
-        }
-        nav ul.dropdown > li:nth-child(2) > a > span {
-            transform: rotate(-15deg);
-        }
-
-        nav ul.dropdown > li:nth-child(3) {
-            z-index: 98;
-        }
-        nav ul.dropdown:hover > li:nth-child(3), nav ul.dropdown.clicked > li:nth-child(3) {
-            top: calc(((100vh - 40px - 50px - 4 * 180px) / 3 + 180px) * 2 + 40px)
-        }
-        nav ul.dropdown > li:nth-child(3) > a {
-            background: #FBFF61;
-            color: #c9ffda;
-            transform: rotate(25deg);
-        }
-        nav ul.dropdown > li:nth-child(3) > a > span {
-            transform: rotate(-25deg);
-        }
-
-        nav ul.dropdown > li:nth-child(4) {
-            z-index: 97;
-        }
-        nav ul.dropdown:hover > li:nth-child(4), nav ul.dropdown.clicked > li:nth-child(4) {
-            top: calc(((100vh - 40px - 50px - 4 * 180px) / 3 + 180px) * 3 + 40px)
-        }
-        nav ul.dropdown > li:nth-child(4) a {
-            color: #b4b7ff;
-            background: #C9FFDA;
-            transform: rotate(35deg);
-        }
-        nav ul.dropdown > li:nth-child(4) > a > span {
-            transform: rotate(-35deg);
-        }
-
-
-        nav ul.dropdown > li:hover {
-            z-index: 101;
-        }
-        main {
-            flex: 1 0 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        main div {
-            width: 400px;
-            height: 400px;
-        }
-        main > div {
-            position: relative;
-        }
-        main > div > div {
-            transform: rotate(45deg);
-            position: absolute;
-        }
-        main > div > div#paper-top{
-            background: #F6FFB4;
-            box-shadow: 10px 10px #B4FFFF;
-            z-index: 90;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        main > div > div#paper-top div {
-            width: auto;
-            height: auto;
-            transform: rotate(-45deg);
-
-            text-shadow: 1px 1px #000;
-            color: #b4b7ff;
-        }
-        main > div > div#paper-top div h2 {
-            position: relative;
-            left: -38px;
-            font-size: 32px;
-        }
-        main > div > div#paper-top div p {
-            position: relative;
-            left: 150px;
-            font-size: 21px;
-        }
-        main > div > div#paper-bottom{
-            background: #B4C0FF;
-            box-shadow: 10px 10px #FFDEB4;
-            z-index: 89;
-            top: 27px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="public/style.css">
     <script>
         function openList(){
             document.querySelectorAll("nav ul.dropdown")[0].classList.add('clicked');
@@ -182,25 +18,23 @@
     </script>
 </head>
 <body>
-    <nav>
-        <ul class="dropdown" onclick="openList()">
-            <li class="main_list"><h1 onclick="closeList(event)"><span>Connection</span></h1></li>
-            <li><a href="https://www.linkedin.com/in/borograam/"><span>LinkedIn</span></a></li>
-            <li><a href="#"><span>GitHub</span></a></li>
-            <li><a href="mailto:andrew.popov@borogra.am" target="_blank"><span>Send a mail</span></a></li>
-        </ul>
-    </nav>
-    <main>
+<nav>
+    <ul class="dropdown" onclick="openList()">
+        <li class="main_list"><h1 onclick="closeList(event)"><span>Connection</span></h1></li>
+        <li><a href="https://www.linkedin.com/in/borograam/"><span>LinkedIn</span></a></li>
+        <li><a href="#"><span>GitHub</span></a></li>
+        <li><a href="mailto:andrew.popov@borogra.am" target="_blank"><span>Send a mail</span></a></li>
+    </ul>
+</nav>
+<main>
+    <div id="paper-top">
         <div>
-            <div id="paper-top">
-                <div>
-                    <h2>Hello, my name is Andrew</h2>
-                    <p>I am a fullstack developer...</p>
-                </div>
-            </div>
-            <div id="paper-bottom"></div>
+            <h2>Hello, my name is Andrew</h2>
+            <p>I am a full stack web developer...</p>
         </div>
+    </div>
+    <div id="paper-bottom"></div>
 
-    </main>
+</main>
 </body>
 </html>
